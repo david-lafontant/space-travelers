@@ -1,18 +1,23 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
-import Dragons from "./pages/dragons/Dragons";
-import Missions from "./pages/missions/Missions";
-import Profile from "./pages/profile/Profile";
-import Rockets from "./pages/rockets/Rockets";
+import { Dragons, Missions, Profile, Rockets } from './pages/index';
+
 function App() {
-
-
   return (
     <div className="App">
       <Header />
-      <Rockets />
-      <Dragons />
-      <Missions />
-      <Profile />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Rockets />} />
+          <Route path="/dragons" element={<Dragons />} />
+          <Route path="/Missions" element={<Missions />} />
+          <Route path="profile" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
+
+
+
     </div>
   )
 }
