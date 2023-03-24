@@ -1,4 +1,5 @@
 import Header from "./components/header/Header";
+import Dragons from "./pages/dragons/Dragons";
 import Missions from "./pages/missions/Missions";
 import Rockets from "./pages/rockets/Rockets";
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <Rockets />
+      <Dragons />
       <Missions />
     </div>
   )
