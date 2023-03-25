@@ -1,8 +1,15 @@
 import React from 'react';
+import { Rocket } from '../../components/rockets/Rocket';
+
 
 const Rockets = () => {
   return (
-    <div>Rockets</div>
+    <section className="container-fluid">
+      Rockets
+      <Rocket />
+      <Rocket />
+      <Rocket />
+    </section>
   )
 }
 
