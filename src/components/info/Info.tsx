@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Info = () => {
-  return (
-    <tr>
-      <td>
-        Info
-      </td>
-    </tr>
-  )
-}
+const Info = () => (
+  <tr>
+    <td>
+      Info
+    </td>
+  </tr>
+);
 
 export default Info;
