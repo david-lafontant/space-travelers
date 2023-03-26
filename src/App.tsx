@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Route, createBrowserRouter, createRoutesFromElements, RouterProvider,
 } from 'react-router-dom';
-import Header from './components/header/Header.tsx';
+import Header from './components/header/Header';
 import {
   Dragons, Missions, Profile, Rockets,
 } from './pages/index.js';

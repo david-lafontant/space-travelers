@@ -12,7 +12,7 @@ const Missions = () => (
               <th scope="col">Mission</th>
               <th scope="col">Description</th>
               <th scope="col">Status</th>
-              <th scope="col" />
+              <th scope="col">blank</th>
             </tr>
           </thead>
           <tbody>

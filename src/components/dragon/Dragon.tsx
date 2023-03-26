@@ -12,7 +12,10 @@ const Dragon = () => (
 
         <h2>The Dragon</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quos quasi repudiandae similique ullam at. Velit similique rem harum aut eveniet illum repellat accusantium ducimus corporis, magnam quas ad placeat!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+          quos quasi repudiandae similique ullam at. Velit similique rem
+          harum aut eveniet illum repellat accusantium ducimus corporis,
+          magnam quas ad placeat!
         </p>
         <ButtonComponent />
       </div>
