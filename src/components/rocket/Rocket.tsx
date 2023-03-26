@@ -5,7 +5,7 @@ import rocket from '../../assets/images/rockets.jpg';
 export const Rocket = () => (
   <article className="row">
     <div className="fill col-md-4 ">
-      <img src={rocket} className="img-fluid w-100" />
+      <img src={rocket} className="img-fluid w-100" alt="rocket" />
     </div>
     <div className="col-md-8 ">
       <div className="d-flex flex-column justify-content-around align-items-start">
