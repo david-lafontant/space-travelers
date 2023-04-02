@@ -3,7 +3,7 @@ import { MissionType } from "../../types/types";
 
 export const missionService = apiService.injectEndpoints({
   endpoints: (build) => ({
-        getMissions: build.query<MissionType, null>({
+        getMissions: build.query<MissionType, any>({
       query: () => ({ method: "GET", url: "missions" }),
     }),
 
