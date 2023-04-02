@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetRocketsQuery } from "../../features/rockets/rocketSlice";
+import { useGetRocketsQuery } from "../../services/rocket/rocketService";
 import { Rocket } from "../../components/rocket/Rocket";
 
 const Rockets = () => {
