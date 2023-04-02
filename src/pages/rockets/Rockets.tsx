@@ -1,7 +1,7 @@
-import React from "react";
-import { useGetRocketsQuery } from "../../services/rocket/rocketService";
-import { Rocket } from "../../components/rocket/Rocket";
-import { ARocket } from "../../types/types";
+import React from 'react';
+import { useGetRocketsQuery } from '../../services/rocket/rocketService';
+import { Rocket } from '../../components/rocket/Rocket';
+import { ARocket } from '../../types/types';
 
 const Rockets = () => {
   const { data, isLoading, error } = useGetRocketsQuery(null);

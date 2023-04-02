@@ -1,6 +1,6 @@
-import React from "react";
-import ButtonComponent from "../button/ButtonComponent";
-import { ADragon } from "../../types/types";
+import React from 'react';
+import ButtonComponent from '../button/ButtonComponent';
+import { ADragon } from '../../types/types';
 
 const Dragon = ({ name, description, flickr_images }: ADragon) => (
   <article className="row">

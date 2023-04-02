@@ -2,26 +2,23 @@ import React, { FC } from 'react';
 import ButtonComponent from '../button/ButtonComponent';
 import { ARocket } from '../../types/types';
 
-export const Rocket = ({ rocket_name, description, flickr_images }: ARocket) => {
+export const Rocket = ({ rocket_name, description, flickr_images }: ARocket) => (
+  <article className="row">
+    <div className="fill col-md-4 ">
+      <img src={flickr_images[0]} className="img-fluid w-100" alt={rocket_name} />
+    </div>
+    <div className="col-md-8 ">
+      <div className="d-flex flex-column justify-content-around align-items-start">
 
-  return (
-    <article className="row">
-      <div className="fill col-md-4 ">
-        <img src={flickr_images[0]} className="img-fluid w-100" alt={rocket_name} />
+        <h2>{rocket_name}</h2>
+        <p>
+          {description}
+        </p>
+        <ButtonComponent />
       </div>
-      <div className="col-md-8 ">
-        <div className="d-flex flex-column justify-content-around align-items-start">
+    </div>
 
-          <h2>{rocket_name}</h2>
-          <p>
-            {description}
-          </p>
-          <ButtonComponent />
-        </div>
-      </div>
-
-    </article>
-  )
-};
+  </article>
+  );
 
 export default Rocket;

@@ -3,7 +3,7 @@ import { rocketService } from '../services/rocket/rocketService';
 import { dragonService } from '../services/dragon/dragonService';
 import { missionService } from '../services/mission/missionService';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     [rocketService.reducerPath]: rocketService.reducer,
     [dragonService.reducerPath]: dragonService.reducer,

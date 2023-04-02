@@ -1,11 +1,11 @@
-import { createApi, BaseQueryFn } from "@reduxjs/toolkit/query/react";
-import Axios, { AxiosError, AxiosRequestConfig } from "axios";
+import { createApi, BaseQueryFn } from '@reduxjs/toolkit/query/react';
+import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
-const axiosBaseQuery =
-  (): BaseQueryFn<AxiosRequestConfig, unknown, AxiosError> =>
-  async ({ url, method, data, params }) => {
+const axiosBaseQuery = (): BaseQueryFn<AxiosRequestConfig, unknown, AxiosError> => async ({
+ url, method, data, params,
+}) => {
     try {
-      Axios.defaults.baseURL = "https://api.spacexdata.com/v3/";
+      Axios.defaults.baseURL = 'https://api.spacexdata.com/v3/';
       const result = await Axios({
         url,
         method,
@@ -25,3 +25,5 @@ export const apiService = createApi({
   baseQuery: axiosBaseQuery(),
   endpoints: () => ({}),
 });
+
+export default apiService;

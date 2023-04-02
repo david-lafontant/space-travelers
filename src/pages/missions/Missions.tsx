@@ -36,7 +36,7 @@ const Missions = () => {
         </div>
       </div>
     </article>
-  )
+  );
 };
 
 export default Missions;

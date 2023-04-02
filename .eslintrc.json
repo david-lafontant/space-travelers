@@ -4,15 +4,16 @@
     "es6": true,
     "jest": true
   },
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "tsx": true
     },
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "extends": ["airbnb", "plugin:react/recommended", "plugin:react-hooks/recommended"],
+  "extends": ["airbnb", "plugin:@typescript-eslint/recommended","plugin:react/recommended", "plugin:react-hooks/recommended"],
   "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": "off",
@@ -20,7 +21,15 @@
     "import/no-unresolved": "off",
     "no-shadow": "off",
     "import/extensions": [ "error", "ignorePackages", { "": "never" } ],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "indent": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "camelcase": "off",
+    "react/jsx-props-no-spreading": "off",
+    "max-len": "off"
   },
   "ignorePatterns": [
     "dist/",
@@ -28,3 +37,5 @@
     "main.tsx"
   ]
 }
+
+

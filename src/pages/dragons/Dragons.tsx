@@ -18,7 +18,7 @@ const Dragons = () => {
         <Dragon key={dragon.id} {...dragon} />
       ))}
     </section>
-  )
+  );
 };
 
 export default Dragons;

@@ -96,7 +96,7 @@ type ADragon = {
     feet: number
   },
   flickr_images: string[],
-  wikipedia: string ,
+  wikipedia: string,
   description: string
 };
 
@@ -111,12 +111,10 @@ type AMission = {
     description: string
   };
 
-
-
-
-
 type RocketType = ARocket[];
 type DragonType = ADragon[];
 type MissionType = AMission[];
 
-export type { ARocket, RocketType, ADragon, DragonType, AMission, MissionType };
+export type {
+ ARocket, RocketType, ADragon, DragonType, AMission, MissionType,
+};
