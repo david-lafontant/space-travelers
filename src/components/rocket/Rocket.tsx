@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import ButtonComponent from '../button/ButtonComponent';
-import { ARocket } from '../../types/rocketsTypes';
+import { ARocket } from '../../types/types';
 
 export const Rocket = ({ rocket_name, description, flickr_images }: ARocket) => {
 
