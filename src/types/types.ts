@@ -100,7 +100,23 @@ type ADragon = {
   description: string
 };
 
+type AMission = {
+    mission_name: string,
+    mission_id: string,
+    manufacturers: string [],
+    payload_ids: string [],
+    wikipedia: string,
+    website: string,
+    twitter: string,
+    description: string
+  }
+
+
+
+
+
 type RocketType = ARocket[];
 type DragonType = ADragon[];
+type MissionType = AMission[];
 
-export type { ARocket, RocketType, ADragon, DragonType};
+export type { ARocket, RocketType, ADragon, DragonType, AMission, MissionType };
