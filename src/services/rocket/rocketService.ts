@@ -1,5 +1,5 @@
-import { apiService } from "../../services/api";
-import RocketType from "../../types/rocketsTypes";
+import { apiService } from "../api";
+import RocketType from "../../types/types";
 
 
 
