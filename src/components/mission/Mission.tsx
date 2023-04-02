@@ -1,14 +1,12 @@
 import React from 'react';
 import ButtonComponent from '../button/ButtonComponent';
+import { AMission } from '../../types/types';
 
-const Mission = () => (
+const Mission = ({ mission_name, description }: AMission) => (
   <tr>
-    <th scope="row">MIssion</th>
+    <th scope="row">{mission_name}</th>
     <td>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Autem aliquam architecto consequuntur aliquid porro dolorem
-      molestias temporibus, dolorum laborum vitae libero iusto facilis
-      incidunt sapiente repellendus odio inventore ullam perspiciatis!
+      {description}
     </td>
     <td>
       <p className="badge bg-info text-dark">
