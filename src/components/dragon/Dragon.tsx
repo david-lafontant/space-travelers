@@ -16,7 +16,14 @@ const Dragon = ({ name, description, flickr_images, booked, id }: ADragon) => {
       <div className="col-md-8 ">
         <div className="d-flex flex-column justify-content-around align-items-start">
           <h2>{name}</h2>
-          <p>{description}</p>
+          <p>
+            {booked ? (
+              <span className="badge bg-info text-white">reserved</span>
+            ) : (
+              <span hidden></span>
+            )}
+            <span>{description}</span>
+          </p>
           {booked ? (
             <ButtonComponent
               booked={booked}
