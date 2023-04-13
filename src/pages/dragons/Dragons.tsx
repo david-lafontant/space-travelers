@@ -8,8 +8,12 @@ import { getDragons } from '../../features/dragon/dragonSlice'
 const Dragons = () => {
   const dispatch = useAppDispatch()
 
+  let refresh = useAppSelector((state) => state.dragons.refresh)
+
   useEffect(() => {
-    dispatch(getDragons())
+    if (refresh === 0) {
+      dispatch(getDragons())
+    }
   }, [dispatch])
 
   let { loading, data } = useAppSelector((state) => state.dragons)
