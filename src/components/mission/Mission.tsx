@@ -18,7 +18,11 @@ const Mission = ({
       <th scope="row">{mission_name}</th>
       <td>{description}</td>
       <td>
-        <p className="badge bg-info text-dark">Status badge</p>
+        {booked ? (
+          <p className="badge bg-info text-white">Active Member</p>
+        ) : (
+          <p className="badge bg-secondary text-white">Not A Member</p>
+        )}
       </td>
       <td>
         {booked ? (
