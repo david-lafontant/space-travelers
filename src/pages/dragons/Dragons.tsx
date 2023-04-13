@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors'
 import { ADragon } from '../../types/types'
 import Dragon from '../../components/dragon/Dragon'
+import Spinner from '../../components/spinner/Spinner'
 import { getDragons } from '../../features/dragon/dragonSlice'
 
 const Dragons = () => {
@@ -15,9 +16,14 @@ const Dragons = () => {
   data?.forEach((item) => console.log(item.booked))
   return (
     <section className="container-fluid">
-      {data?.map((dragon: JSX.IntrinsicAttributes & ADragon) => (
-        <Dragon key={dragon.id} {...dragon} />
-      ))}
+      {loading ? (
+        <Spinner />
+      ) : (
+        data &&
+        data.map((dragon: JSX.IntrinsicAttributes & ADragon) => (
+          <Dragon key={dragon.id} {...dragon} />
+        ))
+      )}
     </section>
   )
 }
