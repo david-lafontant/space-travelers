@@ -30,12 +30,14 @@ interface DragonState {
   loading: boolean
   error: string | null
   data: DragonType | null
+  refresh: number
 }
 
 const initialState = {
   loading: false,
   error: null,
   data: null,
+  refresh: 0,
 } as DragonState
 
 const dragonSlice = createSlice({
@@ -60,6 +62,7 @@ const dragonSlice = createSlice({
         getDragons.fulfilled,
         (state, action: PayloadAction<DragonType>) => {
           state.loading = false
+          state.refresh = 1
           state.data = action.payload
         }
       )
