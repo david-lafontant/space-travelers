@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../hooks/useTypedSelectors'
 import { toggleBooking } from '../../features/rocket/rocketSLice'
 
 export const Rocket = ({
-  rocket_name,
+  name,
   description,
   flickr_images,
   booked,
@@ -17,15 +17,11 @@ export const Rocket = ({
   return (
     <article className="row">
       <div className="fill col-md-4 ">
-        <img
-          src={flickr_images[0]}
-          className="img-fluid w-100"
-          alt={rocket_name}
-        />
+        <img src={flickr_images[0]} className="img-fluid w-100" alt={name} />
       </div>
       <div className="col-md-8 ">
         <div className="d-flex flex-column justify-content-around align-items-start">
-          <h2>{rocket_name}</h2>
+          <h2>{name}</h2>
           <p>
             {' '}
             {booked ? (
