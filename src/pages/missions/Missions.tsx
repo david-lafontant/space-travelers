@@ -28,9 +28,12 @@ const Missions = () => {
               </tr>
             </thead>
             <tbody>
-
               {loading ? (
-                <Spinner />
+                <tr>
+                  <td>
+                    <Spinner />
+                  </td>
+                </tr>
               ) : (
                 data &&
                 data.map((mission: JSX.IntrinsicAttributes & AMission) => (
