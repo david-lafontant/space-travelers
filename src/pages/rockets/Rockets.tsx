@@ -12,7 +12,6 @@ const Rockets = () => {
   }, [dispatch])
 
   let { loading, data } = useAppSelector((state) => state.rockets)
-  data?.forEach((item) => console.log(item.booked))
 
   return (
     <section className="container-fluid">
