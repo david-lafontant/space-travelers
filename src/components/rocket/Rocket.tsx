@@ -1,7 +1,7 @@
-import ButtonComponent from '../button/ButtonComponent'
-import { ARocket } from '../../types/types'
-import { useAppDispatch } from '../../hooks/useTypedSelectors'
-import { toggleBooking } from '../../features/rocket/rocketSLice'
+import ButtonComponent from '../button/ButtonComponent';
+import { ARocket } from '../../types/types';
+import { useAppDispatch } from '../../hooks/useTypedSelectors';
+import { toggleBooking } from '../../features/rocket/rocketSLice';
 
 export const Rocket = ({
   name,
@@ -10,10 +10,10 @@ export const Rocket = ({
   booked,
   id,
 }: ARocket) => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const onClick = (id: number | string) => {
-    dispatch(toggleBooking(id))
-  }
+    dispatch(toggleBooking(id));
+  };
   return (
     <article className="row">
       <div className="fill col-md-4 ">
@@ -27,7 +27,7 @@ export const Rocket = ({
             {booked ? (
               <span className="badge bg-info text-white">reserved</span>
             ) : (
-              <span hidden></span>
+              <span hidden />
             )}
             <span>{description}</span>
           </p>
@@ -51,7 +51,7 @@ export const Rocket = ({
         </div>
       </div>
     </article>
-  )
-}
+  );
+};
 
-export default Rocket
+export default Rocket;

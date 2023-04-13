@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
 
 type ButtonPropsType = {
   text: string
@@ -18,11 +18,11 @@ const ButtonComponent = ({
   <Button
     variant={style}
     onClick={() => {
-      onClick(id)
+      onClick(id);
     }}
   >
     {text}
   </Button>
-)
+);
 
-export default ButtonComponent
+export default ButtonComponent;

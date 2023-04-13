@@ -1,13 +1,15 @@
-import ButtonComponent from '../button/ButtonComponent'
-import { ADragon } from '../../types/types'
-import { useAppDispatch } from '../../hooks/useTypedSelectors'
-import { toggleBooking } from '../../features/dragon/dragonSlice'
+import ButtonComponent from '../button/ButtonComponent';
+import { ADragon } from '../../types/types';
+import { useAppDispatch } from '../../hooks/useTypedSelectors';
+import { toggleBooking } from '../../features/dragon/dragonSlice';
 
-const Dragon = ({ name, description, flickr_images, booked, id }: ADragon) => {
-  const dispatch = useAppDispatch()
+const Dragon = ({
+ name, description, flickr_images, booked, id,
+}: ADragon) => {
+  const dispatch = useAppDispatch();
   const onClick = (id: number | string) => {
-    dispatch(toggleBooking(id))
-  }
+    dispatch(toggleBooking(id));
+  };
   return (
     <article className="row">
       <div className="fill col-md-4 ">
@@ -20,7 +22,7 @@ const Dragon = ({ name, description, flickr_images, booked, id }: ADragon) => {
             {booked ? (
               <span className="badge bg-info text-white">reserved</span>
             ) : (
-              <span hidden></span>
+              <span hidden />
             )}
             <span>{description}</span>
           </p>
@@ -44,7 +46,7 @@ const Dragon = ({ name, description, flickr_images, booked, id }: ADragon) => {
         </div>
       </div>
     </article>
-  )
-}
+  );
+};
 
-export default Dragon
+export default Dragon;

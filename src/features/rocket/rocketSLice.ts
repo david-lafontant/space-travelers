@@ -1,30 +1,30 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
-import axios from 'axios'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-import { RocketType, ARocket } from '../../types/types'
+import { RocketType, ARocket } from '../../types/types';
 
 export const getRockets = createAsyncThunk(
   'rockets/getRockets',
   async (data, thunkApi) => {
     try {
       const response = await axios.get<RocketType>(
-        'https://api.spacexdata.com/v4/rockets'
-      )
+        'https://api.spacexdata.com/v4/rockets',
+      );
 
       // return response.data
-      const transformedItems = []
+      const transformedItems = [];
 
       for (const element of response.data) {
-        const itemObj = { ...element, booked: false }
-        transformedItems.push(itemObj)
+        const itemObj = { ...element, booked: false };
+        transformedItems.push(itemObj);
       }
-      return transformedItems
+      return transformedItems;
     } catch (error: any) {
-      const message = error.message
-      return thunkApi.rejectWithValue(message)
+      const { message } = error;
+      return thunkApi.rejectWithValue(message);
     }
-  }
-)
+  },
+);
 
 interface RocketState {
   loading: boolean
@@ -38,7 +38,7 @@ const initialState = {
   error: null,
   data: null,
   refresh: 0,
-} as RocketState
+} as RocketState;
 
 const rocketSlice = createSlice({
   name: 'rocket',
@@ -46,31 +46,31 @@ const rocketSlice = createSlice({
   reducers: {
     toggleBooking: (state, { payload }) => {
       const rocket: ARocket | undefined = state.data?.find(
-        (item) => item.id === payload
-      )
+        (item) => item.id === payload,
+      );
       if (rocket) {
-        rocket['booked'] = !rocket['booked']
+        rocket.booked = !rocket.booked;
       }
     },
   },
   extraReducers(builder) {
     builder
       .addCase(getRockets.pending, (state, action) => {
-        state.loading = true
+        state.loading = true;
       })
       .addCase(
         getRockets.fulfilled,
         (state, action: PayloadAction<RocketType>) => {
-          state.loading = false
-          state.refresh = 1
-          state.data = action.payload
-        }
+          state.loading = false;
+          state.refresh = 1;
+          state.data = action.payload;
+        },
       )
       .addCase(getRockets.rejected, (state, action: PayloadAction<any>) => {
-        state.error = action.payload
-      })
+        state.error = action.payload;
+      });
   },
-})
+});
 
-export const { toggleBooking } = rocketSlice.actions
-export default rocketSlice.reducer
+export const { toggleBooking } = rocketSlice.actions;
+export default rocketSlice.reducer;

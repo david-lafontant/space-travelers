@@ -1,20 +1,20 @@
-import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors'
-import { AMission } from '../../types/types'
-import Mission from '../../components/mission/Mission'
-import { getMissions } from '../../features/mission/missionSlice'
-import Spinner from '../../components/spinner/Spinner'
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors';
+import { AMission } from '../../types/types';
+import Mission from '../../components/mission/Mission';
+import { getMissions } from '../../features/mission/missionSlice';
+import Spinner from '../../components/spinner/Spinner';
 
 const Missions = () => {
-  const dispatch = useAppDispatch()
-  let refresh = useAppSelector((state) => state.missions.refresh)
+  const dispatch = useAppDispatch();
+  const refresh = useAppSelector((state) => state.missions.refresh);
   useEffect(() => {
     if (refresh === 0) {
-      dispatch(getMissions())
+      dispatch(getMissions());
     }
-  }, [dispatch])
+  }, [dispatch]);
 
-  let { loading, data } = useAppSelector((state) => state.missions)
+  const { loading, data } = useAppSelector((state) => state.missions);
   // data?.forEach((item) => console.log(item.booked))
   return (
     <article className="row">
@@ -37,8 +37,8 @@ const Missions = () => {
                   </td>
                 </tr>
               ) : (
-                data &&
-                data.map((mission: JSX.IntrinsicAttributes & AMission) => (
+                data
+                && data.map((mission: JSX.IntrinsicAttributes & AMission) => (
                   <Mission key={mission.mission_id} {...mission} />
                 ))
               )}
@@ -47,7 +47,7 @@ const Missions = () => {
         </div>
       </div>
     </article>
-  )
-}
+  );
+};
 
-export default Missions
+export default Missions;

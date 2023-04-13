@@ -6,6 +6,6 @@ const Info = ({ name }: InfoProps) => (
   <tr>
     <td>{name}</td>
   </tr>
-)
+);
 
-export default Info
+export default Info;

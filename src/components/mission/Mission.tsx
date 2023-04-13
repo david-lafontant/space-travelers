@@ -1,7 +1,7 @@
-import ButtonComponent from '../button/ButtonComponent'
-import { AMission } from '../../types/types'
-import { useAppDispatch } from '../../hooks/useTypedSelectors'
-import { toggleBooking } from '../../features/mission/missionSlice'
+import ButtonComponent from '../button/ButtonComponent';
+import { AMission } from '../../types/types';
+import { useAppDispatch } from '../../hooks/useTypedSelectors';
+import { toggleBooking } from '../../features/mission/missionSlice';
 
 const Mission = ({
   mission_name,
@@ -9,10 +9,10 @@ const Mission = ({
   booked,
   mission_id,
 }: AMission) => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const onClick = (id: number | string) => {
-    dispatch(toggleBooking(id))
-  }
+    dispatch(toggleBooking(id));
+  };
   return (
     <tr>
       <th scope="row">{mission_name}</th>
@@ -44,7 +44,7 @@ const Mission = ({
         )}
       </td>
     </tr>
-  )
-}
+  );
+};
 
-export default Mission
+export default Mission;
