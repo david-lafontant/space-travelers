@@ -23,6 +23,7 @@ const Dragon = ({ name, description, flickr_images, booked, id }: ADragon) => {
               text="Cancel Reservation"
               id={id}
               onClick={onClick}
+              style="btn btn-outline-secondary"
             />
           ) : (
             <ButtonComponent
@@ -30,6 +31,7 @@ const Dragon = ({ name, description, flickr_images, booked, id }: ADragon) => {
               text="Reserve Dragon"
               id={id}
               onClick={onClick}
+              style="btn btn-primary"
             />
           )}
         </div>
