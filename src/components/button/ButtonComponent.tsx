@@ -1,8 +1,21 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap'
 
-const ButtonComponent = () => (
-  <Button className="btn btn-primary">My Button</Button>
-);
+type ButtonPropsType = {
+  text: string
+  booked: boolean
+  id: number | string
+  onClick: React.MouseEventHandler<HTMLButtonElement> | any
+}
 
-export default ButtonComponent;
+const ButtonComponent = ({ text, booked, id, onClick }: ButtonPropsType) => (
+  <Button
+    className="btn btn-primary"
+    onClick={() => {
+      onClick(id)
+    }}
+  >
+    {text}
+  </Button>
+)
+
+export default ButtonComponent
