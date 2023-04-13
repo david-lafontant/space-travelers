@@ -7,9 +7,12 @@ import { ARocket } from '../../types/types'
 
 const Rockets = () => {
   const dispatch = useAppDispatch()
+  let refresh = useAppSelector((state) => state.rockets.refresh)
 
   useEffect(() => {
-    dispatch(getRockets())
+    if (refresh === 0) {
+      dispatch(getRockets())
+    }
   }, [dispatch])
 
   let { loading, data } = useAppSelector((state) => state.rockets)
