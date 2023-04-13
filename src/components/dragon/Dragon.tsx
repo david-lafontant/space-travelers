@@ -1,9 +1,12 @@
 import ButtonComponent from '../button/ButtonComponent'
 import { ADragon } from '../../types/types'
+import { useAppDispatch } from '../../hooks/useTypedSelectors'
+import { toggleBooking } from '../../features/dragon/dragonSlice'
 
 const Dragon = ({ name, description, flickr_images, booked, id }: ADragon) => {
+  const dispatch = useAppDispatch()
   const onClick = (id: number | string) => {
-    console.log(`dragon id = ${id}`)
+    dispatch(toggleBooking(id))
   }
   return (
     <article className="row">
@@ -24,7 +27,7 @@ const Dragon = ({ name, description, flickr_images, booked, id }: ADragon) => {
           ) : (
             <ButtonComponent
               booked={booked}
-              text="Reserve Rocket"
+              text="Reserve Dragon"
               id={id}
               onClick={onClick}
             />
