@@ -33,6 +33,7 @@ export const Rocket = ({
               text="Cancel Reservation"
               id={id}
               onClick={onClick}
+              style="btn btn-outline-secondary"
             />
           ) : (
             <ButtonComponent
@@ -40,6 +41,7 @@ export const Rocket = ({
               text="Reserve Rocket"
               id={id}
               onClick={onClick}
+              style="btn btn-primary"
             />
           )}
         </div>
