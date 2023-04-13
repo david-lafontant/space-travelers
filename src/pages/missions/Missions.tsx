@@ -1,4 +1,18 @@
+import { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors'
+import { AMission } from '../../types/types'
+import Mission from '../../components/mission/Mission'
+import { getMissions } from '../../features/mission/missionSlice'
+
 const Missions = () => {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(getMissions())
+  }, [dispatch])
+
+  let { loading, data } = useAppSelector((state) => state.missions)
+  data?.forEach((item) => console.log(item.booked))
   return (
     <article className="row">
       <div className="col">
@@ -13,9 +27,9 @@ const Missions = () => {
               </tr>
             </thead>
             <tbody>
-              {/* {data?.map((mission: JSX.IntrinsicAttributes & AMission) => (
+              {data?.map((mission: JSX.IntrinsicAttributes & AMission) => (
                 <Mission key={mission.mission_id} {...mission} />
-              ))} */}
+              ))}
             </tbody>
           </table>
         </div>
