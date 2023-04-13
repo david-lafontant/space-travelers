@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-import { MissionType } from '../../types/types'
+import { AMission, MissionType } from '../../types/types'
 
 export const getMissions = createAsyncThunk(
   'missions/getMissions',
@@ -41,7 +41,16 @@ const initialState = {
 const missionSlice = createSlice({
   name: 'mission',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleBooking: (state, { payload }) => {
+      const mission: AMission | undefined = state.data?.find(
+        (item) => item.mission_id === payload
+      )
+      if (mission) {
+        mission['booked'] = !mission['booked']
+      }
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(getMissions.pending, (state, action) => {
@@ -60,4 +69,5 @@ const missionSlice = createSlice({
   },
 })
 
+export const { toggleBooking } = missionSlice.actions
 export default missionSlice.reducer
