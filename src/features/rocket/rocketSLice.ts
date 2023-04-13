@@ -30,12 +30,14 @@ interface RocketState {
   loading: boolean
   error: string | null
   data: RocketType | null
+  refresh: number
 }
 
 const initialState = {
   loading: false,
   error: null,
   data: null,
+  refresh: 0,
 } as RocketState
 
 const rocketSlice = createSlice({
@@ -60,6 +62,7 @@ const rocketSlice = createSlice({
         getRockets.fulfilled,
         (state, action: PayloadAction<RocketType>) => {
           state.loading = false
+          state.refresh = 1
           state.data = action.payload
         }
       )
