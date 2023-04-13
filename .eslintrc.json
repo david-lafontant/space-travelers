@@ -13,15 +13,20 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "extends": ["airbnb", "plugin:@typescript-eslint/recommended","plugin:react/recommended", "plugin:react-hooks/recommended"],
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
   "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off",
-    "import/extensions": [ "error", "ignorePackages", { "": "never" } ],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/extensions": ["error", "ignorePackages", { "": "never" }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "indent": "off",
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
@@ -29,13 +34,10 @@
     "@typescript-eslint/no-use-before-define": ["error"],
     "camelcase": "off",
     "react/jsx-props-no-spreading": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "no-param-reassign": "off",
+    "no-restricted-syntax": "off",
+    "react/style-prop-object": "off"
   },
-  "ignorePatterns": [
-    "dist/",
-    "build/",
-    "main.tsx"
-  ]
+  "ignorePatterns": ["dist/", "build/", "main.tsx"]
 }
-
-

@@ -1,10 +1,10 @@
-import React from 'react';
+type InfoProps = {
+  name: string
+}
 
-const Info = () => (
+const Info = ({ name }: InfoProps) => (
   <tr>
-    <td>
-      Info
-    </td>
+    <td>{name}</td>
   </tr>
 );
 

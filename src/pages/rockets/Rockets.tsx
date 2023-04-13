@@ -1,23 +1,32 @@
-import React from 'react';
-import { useGetRocketsQuery } from '../../services/rocket/rocketService';
-import { Rocket } from '../../components/rocket/Rocket';
+import { useEffect } from 'react';
+import { getRockets } from '../../features/rocket/rocketSLice';
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors';
+import Rocket from '../../components/rocket/Rocket';
+import Spinner from '../../components/spinner/Spinner';
 import { ARocket } from '../../types/types';
 
 const Rockets = () => {
-  const { data, isLoading, error } = useGetRocketsQuery(null);
-  if (isLoading) {
-    return <div>Loading rockets...</div>;
-  }
+  const dispatch = useAppDispatch();
+  const refresh = useAppSelector((state) => state.rockets.refresh);
 
-  if (error) {
-    return <h1>ERROR</h1>;
-  }
+  useEffect(() => {
+    if (refresh === 0) {
+      dispatch(getRockets());
+    }
+  }, [dispatch]);
+
+  const { loading, data } = useAppSelector((state) => state.rockets);
 
   return (
     <section className="container-fluid">
-      {data?.map((rocket: JSX.IntrinsicAttributes & ARocket) => (
-        <Rocket key={rocket.id} {...rocket} />
-      ))}
+      {loading ? (
+        <Spinner />
+      ) : (
+        data
+        && data.map((rocket: JSX.IntrinsicAttributes & ARocket) => (
+          <Rocket key={rocket.id} {...rocket} />
+        ))
+      )}
     </section>
   );
 };

@@ -1,22 +1,25 @@
-import React from 'react';
-import { useGetMissionsQuery } from '../../services/mission/missionService';
-import Mission from '../../components/mission/Mission';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors';
 import { AMission } from '../../types/types';
+import Mission from '../../components/mission/Mission';
+import { getMissions } from '../../features/mission/missionSlice';
+import Spinner from '../../components/spinner/Spinner';
 
 const Missions = () => {
-  const { data, isLoading, error } = useGetMissionsQuery(null);
-  if (isLoading) {
-    return <div>Loading Mission...</div>;
-  }
+  const dispatch = useAppDispatch();
+  const refresh = useAppSelector((state) => state.missions.refresh);
+  useEffect(() => {
+    if (refresh === 0) {
+      dispatch(getMissions());
+    }
+  }, [dispatch]);
 
-  if (error) {
-    return <h1>ERROR</h1>;
-  }
+  const { loading, data } = useAppSelector((state) => state.missions);
+  // data?.forEach((item) => console.log(item.booked))
   return (
     <article className="row">
       <div className="col">
         <div className="p-4">
-
           <table className="table">
             <thead>
               <tr>
@@ -27,10 +30,18 @@ const Missions = () => {
               </tr>
             </thead>
             <tbody>
-
-              {data?.map((mission: JSX.IntrinsicAttributes & AMission) => (
-                <Mission key={mission.mission_id} {...mission} />
-              ))}
+              {loading ? (
+                <tr>
+                  <td>
+                    <Spinner />
+                  </td>
+                </tr>
+              ) : (
+                data
+                && data.map((mission: JSX.IntrinsicAttributes & AMission) => (
+                  <Mission key={mission.mission_id} {...mission} />
+                ))
+              )}
             </tbody>
           </table>
         </div>
