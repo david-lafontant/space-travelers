@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-import { RocketType } from '../../types/types'
+import { RocketType, ARocket } from '../../types/types'
 
 export const getRockets = createAsyncThunk(
   'rockets/getRockets',
@@ -41,7 +41,16 @@ const initialState = {
 const rocketSlice = createSlice({
   name: 'rocket',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleBooking: (state, { payload }) => {
+      const rocket: ARocket | undefined = state.data?.find(
+        (item) => item.id === payload
+      )
+      if (rocket) {
+        rocket['booked'] = !rocket['booked']
+      }
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(getRockets.pending, (state, action) => {
@@ -60,4 +69,5 @@ const rocketSlice = createSlice({
   },
 })
 
+export const { toggleBooking } = rocketSlice.actions
 export default rocketSlice.reducer
