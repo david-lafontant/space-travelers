@@ -11,7 +11,7 @@ const Rockets = () => {
     dispatch(getRockets())
   }, [dispatch])
 
-  let { loading, data } = useAppSelector((state) => state)
+  let { loading, data } = useAppSelector((state) => state.rockets)
   data?.forEach((item) => console.log(item.booked))
 
   return (
