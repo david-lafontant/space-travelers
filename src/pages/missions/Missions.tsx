@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors'
 import { AMission } from '../../types/types'
 import Mission from '../../components/mission/Mission'
 import { getMissions } from '../../features/mission/missionSlice'
+import Spinner from '../../components/spinner/Spinner'
 
 const Missions = () => {
   const dispatch = useAppDispatch()
@@ -27,9 +28,15 @@ const Missions = () => {
               </tr>
             </thead>
             <tbody>
-              {data?.map((mission: JSX.IntrinsicAttributes & AMission) => (
-                <Mission key={mission.mission_id} {...mission} />
-              ))}
+
+              {loading ? (
+                <Spinner />
+              ) : (
+                data &&
+                data.map((mission: JSX.IntrinsicAttributes & AMission) => (
+                  <Mission key={mission.mission_id} {...mission} />
+                ))
+              )}
             </tbody>
           </table>
         </div>
