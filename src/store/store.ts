@@ -1,15 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { rocketService } from '../services/rocket/rocketService';
-import { dragonService } from '../services/dragon/dragonService';
-import { missionService } from '../services/mission/missionService';
+import { configureStore } from '@reduxjs/toolkit'
+
+import rocketSlice from '../features/rocket/rocketSLice'
 
 export const store = configureStore({
-  reducer: {
-    [rocketService.reducerPath]: rocketService.reducer,
-    [dragonService.reducerPath]: dragonService.reducer,
-    [missionService.reducerPath]: missionService.reducer,
-  },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rocketService.middleware, dragonService.middleware, missionService.middleware),
-});
+  reducer: rocketSlice,
+})
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>
+
+export type AppDispatch = typeof store.dispatch
+
+export default store
