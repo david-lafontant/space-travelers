@@ -24,16 +24,18 @@ const Mission = ({
         {booked ? (
           <ButtonComponent
             booked={booked}
-            text="Cancel Reservation"
+            text="Leave MIssion"
             id={mission_id}
             onClick={onClick}
+            style="btn btn-outline-danger"
           />
         ) : (
           <ButtonComponent
             booked={booked}
-            text="Reserve Mission"
+            text="Join Mission"
             id={mission_id}
             onClick={onClick}
+            style="btn btn-outline-secondary"
           />
         )}
       </td>
