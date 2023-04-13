@@ -7,13 +7,15 @@ import Spinner from '../../components/spinner/Spinner'
 
 const Missions = () => {
   const dispatch = useAppDispatch()
-
+  let refresh = useAppSelector((state) => state.missions.refresh)
   useEffect(() => {
-    dispatch(getMissions())
+    if (refresh === 0) {
+      dispatch(getMissions())
+    }
   }, [dispatch])
 
   let { loading, data } = useAppSelector((state) => state.missions)
-  data?.forEach((item) => console.log(item.booked))
+  // data?.forEach((item) => console.log(item.booked))
   return (
     <article className="row">
       <div className="col">
