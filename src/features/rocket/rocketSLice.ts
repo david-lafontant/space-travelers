@@ -10,7 +10,15 @@ export const getRockets = createAsyncThunk(
       const response = await axios.get<RocketType>(
         'https://api.spacexdata.com/v4/rockets'
       )
-      return response.data
+
+      // return response.data
+      const transformedItems = []
+
+      for (const element of response.data) {
+        const itemObj = { ...element, booked: false }
+        transformedItems.push(itemObj)
+      }
+      return transformedItems
     } catch (error: any) {
       const message = error.message
       return thunkApi.rejectWithValue(message)
