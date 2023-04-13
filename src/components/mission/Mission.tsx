@@ -1,5 +1,7 @@
 import ButtonComponent from '../button/ButtonComponent'
 import { AMission } from '../../types/types'
+import { useAppDispatch } from '../../hooks/useTypedSelectors'
+import { toggleBooking } from '../../features/mission/missionSlice'
 
 const Mission = ({
   mission_name,
@@ -7,8 +9,9 @@ const Mission = ({
   booked,
   mission_id,
 }: AMission) => {
+  const dispatch = useAppDispatch()
   const onClick = (id: number | string) => {
-    console.log(`mission id = ${id}`)
+    dispatch(toggleBooking(id))
   }
   return (
     <tr>
@@ -28,7 +31,7 @@ const Mission = ({
         ) : (
           <ButtonComponent
             booked={booked}
-            text="Reserve Rocket"
+            text="Reserve Mission"
             id={mission_id}
             onClick={onClick}
           />
