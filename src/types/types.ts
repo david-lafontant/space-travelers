@@ -17,7 +17,7 @@ type ARocket = {
   mass: { kg: number; lb: number }
   payload_weights: any
   rocket_id: string
-  rocket_name: string | any
+  name: string | any
   rocket_type: string
   second_stage: any
   stages: number
