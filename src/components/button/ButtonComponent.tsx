@@ -5,11 +5,18 @@ type ButtonPropsType = {
   booked: boolean
   id: number | string
   onClick: React.MouseEventHandler<HTMLButtonElement> | any
+  style: string
 }
 
-const ButtonComponent = ({ text, booked, id, onClick }: ButtonPropsType) => (
+const ButtonComponent = ({
+  text,
+  booked,
+  id,
+  onClick,
+  style,
+}: ButtonPropsType) => (
   <Button
-    className="btn btn-primary"
+    variant={style}
     onClick={() => {
       onClick(id)
     }}
