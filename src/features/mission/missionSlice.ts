@@ -30,12 +30,14 @@ interface MissionState {
   loading: boolean
   error: string | null
   data: MissionType | null
+  refresh: number
 }
 
 const initialState = {
   loading: false,
   error: null,
   data: null,
+  refresh: 0,
 } as MissionState
 
 const missionSlice = createSlice({
@@ -60,6 +62,7 @@ const missionSlice = createSlice({
         getMissions.fulfilled,
         (state, action: PayloadAction<MissionType>) => {
           state.loading = false
+          state.refresh = 1
           state.data = action.payload
         }
       )
