@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-import { DragonType } from '../../types/types'
+import { ADragon, DragonType } from '../../types/types'
 
 export const getDragons = createAsyncThunk(
   'dragons/getDragons',
@@ -41,7 +41,16 @@ const initialState = {
 const dragonSlice = createSlice({
   name: 'dragon',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleBooking: (state, { payload }) => {
+      const dragon: ADragon | undefined = state.data?.find(
+        (item) => item.id === payload
+      )
+      if (dragon) {
+        dragon['booked'] = !dragon['booked']
+      }
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(getDragons.pending, (state, action) => {
@@ -60,4 +69,5 @@ const dragonSlice = createSlice({
   },
 })
 
+export const { toggleBooking } = dragonSlice.actions
 export default dragonSlice.reducer
