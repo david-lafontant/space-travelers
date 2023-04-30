@@ -1,16 +1,15 @@
 export const quantity = (element: any) => {
-  let result: any
+  let result: any;
   if (element) {
-    result = element.filter((item: any) => item.booked === true)
+    result = element.filter((item: any) => item.booked === true);
   } else {
-    result = []
+    result = [];
   }
 
   if (result.length > 0) {
-    return true
-  } else {
-    return false
+    return true;
   }
-}
+    return false;
+};
 
-export default quantity
+export default quantity;

@@ -55,7 +55,7 @@ const rocketSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(getRockets.pending, (state, action) => {
+      .addCase(getRockets.pending, (state) => {
         state.loading = true;
       })
       .addCase(
