@@ -50,6 +50,7 @@ const Profile = () => {
                       id={mission.mission_id}
                       name={mission.mission_name}
                       category="mission"
+                      wikipedia={mission.wikipedia}
                     />
                   )
               )
@@ -87,6 +88,7 @@ const Profile = () => {
                       id={rocket.id}
                       name={rocket.name}
                       category="rocket"
+                      wikipedia={rocket.wikipedia}
                     />
                   )
               )
@@ -124,6 +126,7 @@ const Profile = () => {
                       id={dragon.id}
                       name={dragon.name}
                       category="dragon"
+                      wikipedia={dragon.wikipedia}
                     />
                   )
               )
