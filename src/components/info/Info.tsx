@@ -1,7 +1,8 @@
-import { useAppDispatch } from '../../hooks/useTypedSelectors'
-import { toggleBooking as dragonBooking } from '../../features/dragon/dragonSlice'
-import { toggleBooking as missionBooking } from '../../features/mission/missionSlice'
-import { toggleBooking as rocketBooking } from '../../features/rocket/rocketSLice'
+import { useAppDispatch } from '../../hooks/useTypedSelectors';
+import { toggleBooking as dragonBooking } from '../../features/dragon/dragonSlice';
+import { toggleBooking as missionBooking } from '../../features/mission/missionSlice';
+import { toggleBooking as rocketBooking } from '../../features/rocket/rocketSLice';
+
 type InfoProps = {
   name: string
   category: 'mission' | 'rocket' | 'dragon'
@@ -9,33 +10,34 @@ type InfoProps = {
   wikipedia: string
 }
 
-const Info = ({ name, category, id, wikipedia }: InfoProps) => {
-  const dispatch = useAppDispatch()
+const Info = ({
+ name, category, id, wikipedia,
+}: InfoProps) => {
+  const dispatch = useAppDispatch();
   const handleClick = (
     id: number | string,
-    category: 'mission' | 'rocket' | 'dragon'
+    category: 'mission' | 'rocket' | 'dragon',
   ) => {
     switch (category) {
       case 'mission':
-        dispatch(missionBooking(id))
-        break
+        dispatch(missionBooking(id));
+        break;
       case 'rocket':
-        dispatch(rocketBooking(id))
-        break
+        dispatch(rocketBooking(id));
+        break;
       case 'dragon':
-        dispatch(dragonBooking(id))
-        break
+        dispatch(dragonBooking(id));
+        break;
       default:
-        const error = 'error'
-        break
+        throw new Error('Invalid category');
     }
-    console.log('function fired')
-  }
+  };
   return (
     <tr>
       <td>{name}</td>
       <td>
         <button
+          type="button"
           onClick={() => handleClick(id, category)}
           className="btn btn-outline-secondary"
         >
@@ -54,7 +56,7 @@ const Info = ({ name, category, id, wikipedia }: InfoProps) => {
         </a>
       </td>
     </tr>
-  )
-}
+  );
+};
 
-export default Info
+export default Info;
