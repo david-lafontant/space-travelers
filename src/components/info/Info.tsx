@@ -6,9 +6,10 @@ type InfoProps = {
   name: string
   category: 'mission' | 'rocket' | 'dragon'
   id: number | string
+  wikipedia: string
 }
 
-const Info = ({ name, category, id }: InfoProps) => {
+const Info = ({ name, category, id, wikipedia }: InfoProps) => {
   const dispatch = useAppDispatch()
   const handleClick = (
     id: number | string,
@@ -40,6 +41,17 @@ const Info = ({ name, category, id }: InfoProps) => {
         >
           Cancel Reservation
         </button>
+      </td>
+      <td>
+        <a
+          className="btn btn-outline-info"
+          href={wikipedia}
+          title="wikipedia description"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Read more
+        </a>
       </td>
     </tr>
   )
