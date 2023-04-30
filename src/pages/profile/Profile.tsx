@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors'
 import Info from '../../components/info/Info'
-import dragonSlice, { getDragons } from '../../features/dragon/dragonSlice'
+import { getDragons } from '../../features/dragon/dragonSlice'
 import { getMissions } from '../../features/mission/missionSlice'
 import { getRockets } from '../../features/rocket/rocketSLice'
 import Alert from '../../components/no-mission/Alert'
@@ -29,8 +29,8 @@ const Profile = () => {
   const { data: rockets } = useAppSelector((state) => state.rockets)
   console.log(rockets)
   const missionBooked: boolean = quantity(missions)
-  const RocketBooked: boolean = quantity(rockets)
-  const DragonBooked: boolean = quantity(dragons)
+  const rocketBooked: boolean = quantity(rockets)
+  const dragonBooked: boolean = quantity(dragons)
   return (
     <article className="row">
       <div className="col-md-4">
@@ -67,7 +67,7 @@ const Profile = () => {
             </tr>
           </thead>
           <tbody>
-            {rockets?.map(
+            {/* {rockets?.map(
               (rocket) =>
                 rocket.booked && (
                   <Info
@@ -77,6 +77,21 @@ const Profile = () => {
                     category="rocket"
                   />
                 )
+            )} */}
+            {rocketBooked ? (
+              rockets?.map(
+                (rocket) =>
+                  rocket.booked && (
+                    <Info
+                      key={rocket.id}
+                      id={rocket.id}
+                      name={rocket.name}
+                      category="rocket"
+                    />
+                  )
+              )
+            ) : (
+              <Alert message="rocket" />
             )}
           </tbody>
         </table>
