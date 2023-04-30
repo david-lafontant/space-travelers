@@ -104,7 +104,7 @@ const Profile = () => {
             </tr>
           </thead>
           <tbody>
-            {dragons?.map(
+            {/* {dragons?.map(
               (dragon) =>
                 dragon.booked && (
                   <Info
@@ -114,6 +114,21 @@ const Profile = () => {
                     category="dragon"
                   />
                 )
+            )} */}
+            {dragonBooked ? (
+              dragons?.map(
+                (dragon) =>
+                  dragon.booked && (
+                    <Info
+                      key={dragon.id}
+                      id={dragon.id}
+                      name={dragon.name}
+                      category="dragon"
+                    />
+                  )
+              )
+            ) : (
+              <Alert message="dragon" />
             )}
           </tbody>
         </table>
