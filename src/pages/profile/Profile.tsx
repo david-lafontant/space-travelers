@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelectors'
 import Info from '../../components/info/Info'
-import { getDragons } from '../../features/dragon/dragonSlice'
+import dragonSlice, { getDragons } from '../../features/dragon/dragonSlice'
 import { getMissions } from '../../features/mission/missionSlice'
 import { getRockets } from '../../features/rocket/rocketSLice'
+import Alert from '../../components/no-mission/Alert'
+import quantity from '../../utils/quantity'
 
 const Profile = () => {
   const dispatch = useAppDispatch()
@@ -26,6 +28,9 @@ const Profile = () => {
   const { data: dragons } = useAppSelector((state) => state.dragons)
   const { data: rockets } = useAppSelector((state) => state.rockets)
   console.log(rockets)
+  const missionBooked: boolean = quantity(missions)
+  const RocketBooked: boolean = quantity(rockets)
+  const DragonBooked: boolean = quantity(dragons)
   return (
     <article className="row">
       <div className="col-md-4">
@@ -36,16 +41,20 @@ const Profile = () => {
             </tr>
           </thead>
           <tbody>
-            {missions?.map(
-              (mission) =>
-                mission.booked && (
-                  <Info
-                    key={mission.mission_id}
-                    id={mission.mission_id}
-                    name={mission.mission_name}
-                    category="mission"
-                  />
-                )
+            {missionBooked ? (
+              missions?.map(
+                (mission) =>
+                  mission.booked && (
+                    <Info
+                      key={mission.mission_id}
+                      id={mission.mission_id}
+                      name={mission.mission_name}
+                      category="mission"
+                    />
+                  )
+              )
+            ) : (
+              <Alert message="mission" />
             )}
           </tbody>
         </table>
