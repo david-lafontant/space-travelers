@@ -1,15 +1,14 @@
+import { RocketType, DragonType, MissionType } from '../types/types'
+
+type Listing = RocketType | DragonType | MissionType
+
 export const quantity = (element: any) => {
-  let result: any;
+  let result = [] as Listing
   if (element) {
-    result = element.filter((item: any) => item.booked === true);
-  } else {
-    result = [];
+    result = element.filter((item: any) => item.booked === true)
   }
 
-  if (result.length > 0) {
-    return true;
-  }
-    return false;
-};
+  return result.length > 0
+}
 
-export default quantity;
+export default quantity
