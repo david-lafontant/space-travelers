@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import {
   Route,
   createBrowserRouter,
@@ -6,6 +7,7 @@ import {
 } from 'react-router-dom'
 import Header from './components/header/Header'
 import { Dragons, Missions, Profile, Rockets } from './pages/index.js'
+import Spinner from './components/spinner/Spinner'
 
 const ROUTER = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +22,9 @@ const ROUTER = createBrowserRouter(
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={ROUTER} />
+      <Suspense fallback={<Spinner />}>
+        <RouterProvider router={ROUTER} />
+      </Suspense>
     </div>
   )
 }
