@@ -10,10 +10,10 @@ import { Provider } from 'react-redux'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ErrorBoundary>
+    <ErrorBoundary>
+      <Provider store={store}>
         <App />
-      </ErrorBoundary>
-    </Provider>
+      </Provider>
+    </ErrorBoundary>
   </React.StrictMode>
 )
