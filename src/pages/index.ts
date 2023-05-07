@@ -1,8 +1,8 @@
-import Dragons from './dragons/Dragons';
-import Missions from './missions/Missions';
-import Rockets from './rockets/Rockets';
-import Profile from './profile/Profile';
+import React from 'react'
 
-export {
-  Dragons, Missions, Rockets, Profile,
-};
+const Dragons = React.lazy(() => import('./dragons/Dragons'))
+const Missions = React.lazy(() => import('./missions/Missions'))
+const Rockets = React.lazy(() => import('./rockets/Rockets'))
+const Profile = React.lazy(() => import('./profile/Profile'))
+
+export { Dragons, Missions, Rockets, Profile }
