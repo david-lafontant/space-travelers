@@ -55,7 +55,7 @@ const missionSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(getMissions.pending, (state, action) => {
+      .addCase(getMissions.pending, (state) => {
         state.loading = true;
       })
       .addCase(

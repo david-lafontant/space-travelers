@@ -55,7 +55,7 @@ const dragonSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(getDragons.pending, (state, action) => {
+      .addCase(getDragons.pending, (state) => {
         state.loading = true;
       })
       .addCase(

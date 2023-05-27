@@ -12,7 +12,7 @@ const Missions = () => {
     if (refresh === 0) {
       dispatch(getMissions());
     }
-  }, [dispatch]);
+  }, [dispatch, refresh]);
 
   const { loading, data } = useAppSelector((state) => state.missions);
   // data?.forEach((item) => console.log(item.booked))

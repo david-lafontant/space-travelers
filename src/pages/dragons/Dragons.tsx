@@ -17,7 +17,6 @@ const Dragons = () => {
   }, [dispatch]);
 
   const { loading, data } = useAppSelector((state) => state.dragons);
-  data?.forEach((item) => console.log(item.booked));
   return (
     <section className="container-fluid">
       {loading ? (
